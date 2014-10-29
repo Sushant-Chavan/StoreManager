@@ -19,8 +19,7 @@ bool readConfig::readItemData()
 {
 	char filestream[BUFF_SIZE];
 
-	ifstream infile;
-	infile.open("Config.txt", std::ifstream::in);
+	ifstream infile("F:\\Projects\\StoreManager\\Debug\\Config\\Config.txt");
 
 	if (!infile.good())
 	{
@@ -40,13 +39,26 @@ bool readConfig::readItemData()
 		check = filestream[0];
 	} while (check != '<');
 
-	//Extract Item Name
-	string tempItemName = filestream;
-	string itemName;
-	itemName.reserve(tempItemName.size() - 2);
-	for (int i = 1; i < itemName.size() - 1; i++)
+	infile.getline(filestream, BUFF_SIZE);
+	while (filestream[0] != '<')
 	{
-		itemName[i - 1] = tempItemName[i];
+		//Extract Item Details
+		string itemName;
+		unsigned int itemCode;
+		float itemQuantity;
+		unsigned int itemPrice;
+
+		ss << filestream;
+		ss >> itemName;
+		ss >> itemCode;
+		ss >> itemQuantity;
+		ss >> itemPrice;
+
+		_itemManager->addItem(itemName.c_str(), itemCode, itemQuantity, itemPrice);
+
+		ss << "";
+		ss.clear();
+		infile.getline(filestream, BUFF_SIZE);
 	}
-	int i = 0;
+	return true;
 }

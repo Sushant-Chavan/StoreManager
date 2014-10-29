@@ -4,9 +4,10 @@ using namespace std;
 hmi::hmi()
 {
 	iManager = new itemManager;
-	//configReader = new readConfig(iManager);
+	configReader = new readConfig(iManager);
 	customerBill = NULL;
-	addDefaultItems();
+	//addDefaultItems();
+	configReader->readItemData();
 }
 
 void hmi::addDefaultItems()

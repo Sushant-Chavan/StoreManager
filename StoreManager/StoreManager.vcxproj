@@ -91,7 +91,7 @@
     <ClCompile Include="source\ItemManager.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\ReadConfig.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
