@@ -1,0 +1,20 @@
+// Config File to hold all the item details
+// Format: ItemName in <>, followed by itemCode, quantity(in gms), price(Rs)
+
+<Rice>
+1
+1000
+10
+</Rice>
+
+<Wheat>
+2
+1000
+30
+</Wheat>
+
+<Soap>
+3
+1
+50
+</Soap>
