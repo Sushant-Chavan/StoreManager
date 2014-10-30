@@ -82,7 +82,7 @@
     <ClInclude Include="source\HMI.h" />
     <ClInclude Include="source\Item.h" />
     <ClInclude Include="source\ItemManager.h" />
-    <ClInclude Include="source\ReadConfig.h" />
+    <ClInclude Include="source\AccessConfig.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Billing.cpp" />
@@ -90,7 +90,7 @@
     <ClCompile Include="source\Item.cpp" />
     <ClCompile Include="source\ItemManager.cpp" />
     <ClCompile Include="source\main.cpp" />
-    <ClCompile Include="source\ReadConfig.cpp">
+    <ClCompile Include="source\AccessConfig.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>

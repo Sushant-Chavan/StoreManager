@@ -3,20 +3,11 @@ using namespace std;
 
 hmi::hmi()
 {
-	iManager = new itemManager;
-	configReader = new readConfig(iManager);
-	customerBill = NULL;
-	//addDefaultItems();
-	configReader->readItemData();
-}
-
-void hmi::addDefaultItems()
-{
-	iManager->addItem("Rice", 1, 1000, 10);
-	iManager->addItem("Wheat", 2, 1000, 20);
-	iManager->addItem("Jowar", 3, 1000, 15);
-	iManager->addItem("Atta", 4, 1000, 40);
-	iManager->addItem("Maida", 5, 1000, 30);
+	_iManager = new itemManager;
+	_configReader = new readConfig(_iManager);
+	_configwriter = new writeConfig(_iManager);
+	_customerBill = NULL;
+	_configReader->readItemData();
 }
 
 void hmi::mainMenu()
@@ -57,9 +48,9 @@ void hmi::mainMenu()
 void hmi::billing()
 {
 	// TODO: Clear Screen
-	if(customerBill == NULL)
+	if(_customerBill == NULL)
 	{
-		customerBill = new bill;
+		_customerBill = new bill;
 	}
 
 	cout << "Choose an option for Billing: " << endl;
@@ -80,14 +71,14 @@ void hmi::billing()
 		break;
 	case 2: deleteBillItem();
 		break;
-	case 3: customerBill->displayDetails();
+	case 3: _customerBill->displayDetails();
 		billing();
 		break;
-	case 4: customerBill->compute();
+	case 4: _customerBill->compute();
 		billing();
 		break;
-	case 5: delete customerBill;
-		customerBill = NULL;
+	case 5: delete _customerBill;
+		_customerBill = NULL;
 		mainMenu();
 		break;
 	default: cout << "Invalid Choice!" << std::endl << endl;
@@ -103,14 +94,14 @@ void hmi::newBillItem()
 	cout << "Enter the item Code of Item to be added to bill: ";
 	cin >> itemCode;
 
-	if(iManager->itemPresent(itemCode))
+	if(_iManager->itemPresent(itemCode))
 	{
 		cout << endl << "Enter Quantity of the item: ";
 		cin >> quantity;
 
-		item billItem = iManager->getItem(itemCode);
+		item billItem = _iManager->getItem(itemCode);
 		
-		customerBill->addItem(billItem, quantity);
+		_customerBill->addItem(billItem, quantity);
 	}
 	else
 	{
@@ -127,7 +118,7 @@ void hmi::deleteBillItem()
 	cout << "Enter the item Code of Item to be removed from the bill: ";
 	cin >> itemCode;
 
-	customerBill->removeItem(itemCode);
+	_customerBill->removeItem(itemCode);
 
 	billing();
 }
@@ -151,7 +142,8 @@ void hmi::addNewItem()
 	cout << endl << "Enter the quantity: ";
 	cin >> quantity;
 
-	iManager->addItem(itemName.c_str(), itemCode, quantity, price);
+	_iManager->addItem(itemName.c_str(), itemCode, quantity, price);
+	_configwriter->writeItemData();
 	mainMenu();
 }
 
@@ -161,8 +153,8 @@ void hmi::removeItem()
 	cout << "Enter the Item Code of item to be removed: ";
 	cin >> itemCode;
 
-	iManager->removeItem(itemCode);
-
+	_iManager->removeItem(itemCode);
+	_configwriter->writeItemData();
 	mainMenu();
 }
 
@@ -178,7 +170,7 @@ void hmi::searchItemCode()
 
 void hmi::displayAllItems()
 {
-	iManager->displayAllItemDetails();
+	_iManager->displayAllItemDetails();
 
 	mainMenu();
 }

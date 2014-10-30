@@ -58,6 +58,23 @@ item itemManager::getItem(unsigned int itemCode)
 	return newItem;
 }
 
+item itemManager::getMappedItem(unsigned int positionInMap)
+{
+	std::map<unsigned int, item*>::iterator itr = itemMap->begin();
+	for (unsigned int i = 0; i < positionInMap; i++)
+	{
+		itr++;
+	}
+
+	item newItem;
+
+	if (itr != itemMap->end())
+	{
+		newItem = *(itr->second);
+	}
+	return newItem;
+}
+
 void itemManager::displayAllItemCodes()
 {
 	std::map<unsigned int, item*>::iterator itr;

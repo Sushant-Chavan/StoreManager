@@ -10,11 +10,15 @@ public:
 
 	void addItem(const char* itemName, unsigned int itemCode, float quantity, unsigned int price);
 
+	unsigned int getNumberOfItems(){ return itemMap->size(); }
+
 	void addItem(item& newItem);
 
 	void removeItem(unsigned int itemCode);
 
 	item getItem(unsigned int itemCode);
+
+	item getMappedItem(unsigned int positionInMap);
 
 	void displayAllItemCodes();
 
