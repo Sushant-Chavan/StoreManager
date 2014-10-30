@@ -14,15 +14,15 @@ public:
 
 		void display();
 
-		unsigned int computePrice();
+		float computePrice();
 	};
 
 	void displayDetails();
-	unsigned int compute();
+	float compute();
 	void removeItem(unsigned int itemCode);
 	void addItem(item& newItem, unsigned int quantity);
 protected:
-	std::map<unsigned int, billedItem> itemList;
+	std::map<unsigned int, billedItem> _itemList;
 };
 
 #endif

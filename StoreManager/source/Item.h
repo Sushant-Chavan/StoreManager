@@ -3,33 +3,37 @@
 
 #include <iostream>
 #include <string>
+#include<map>
 class item
 {
 public:
 	item();
-	item(const char* itemName, unsigned int itemCode, float quantity, unsigned int price);
+	item(const char* itemName, unsigned int itemCode, float quantity, float price);
 
-	std::string getItemName() { return name; }
+	std::string getItemName() { return _name; }
 
-	float getItemQuantity() { return quantity; }
+	float getItemQuantity() { return _quantity; }
 
-	unsigned int getItemCode() { return code; }
+	unsigned int getItemCode() { return _code; }
 
-	unsigned int getItemPrice() { return price; }
+	float getItemPrice() { return _price; }
 
-	void setItemName(const char* itemName) { name = itemName; }
+	void setItemName(const char* itemName) { _name = itemName; }
 
-	void setItemQuantity(float itemQuantity) { quantity = itemQuantity; }
+	void setItemQuantity(float itemQuantity) { _quantity = itemQuantity; }
 
-	void setItemCode(unsigned int itemCode) { code = itemCode; }
+	void setItemCode(unsigned int itemCode) { _code = itemCode; }
 
-	void setItemPrice(unsigned int itemPrice) { price = itemPrice; }
+	void setItemPrice(float itemPrice) { _price = itemPrice; }
+
+	void setItemMrp(float quantity, float price);
 
 	void displayDetails();
 protected:
-	std::string name;
-	float quantity;
-	unsigned int code;
-	unsigned int price;
+	std::string _name;
+	unsigned int _code;
+
+	float _quantity;
+	float _price;
 };
 #endif

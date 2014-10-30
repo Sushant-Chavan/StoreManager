@@ -1,7 +1,7 @@
 #ifndef HMI_H
 #define HMI_H
 
-#include "ReadConfig.h"
+#include "AccessConfig.h"
 #include "ItemManager.h"
 #include "Billing.h"
 #include <vector>
@@ -11,7 +11,7 @@ class hmi
 public:
 	hmi();
 
-	itemManager* getItemManager() {return iManager; }
+	itemManager* getItemManager() {return _iManager; }
 
 	void mainMenu();
 
@@ -32,11 +32,9 @@ public:
 	void deleteBillItem();
 
 protected:
-
-	void addDefaultItems();
-
-	itemManager* iManager;
-	readConfig* configReader;
-	bill* customerBill;
+	itemManager* _iManager;
+	readConfig* _configReader;
+	writeConfig* _configwriter;
+	bill* _customerBill;
 };
 #endif

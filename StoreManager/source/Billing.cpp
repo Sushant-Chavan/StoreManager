@@ -5,7 +5,7 @@ void bill::billedItem::display()
 	std::cout << myItem.getItemName() << ", " << myItem.getItemQuantity() << "gms, Rs." << myItem.getItemPrice() << " per unit." << "----> " << quantity << " units" << std::endl;
 }
 
-unsigned int bill::billedItem::computePrice()
+float bill::billedItem::computePrice()
 {
 	return (myItem.getItemPrice() * quantity);
 }
@@ -13,16 +13,16 @@ unsigned int bill::billedItem::computePrice()
 void bill::addItem(item& newItem, unsigned int quantity)
 {
 	std::map<unsigned int, billedItem>::iterator itr;
-	itr = itemList.find(newItem.getItemCode());
+	itr = _itemList.find(newItem.getItemCode());
 
 	// If item already not present in the bill add item
-	if(itr == itemList.end())
+	if(itr == _itemList.end())
 	{
 		billedItem i;
 		i.myItem = newItem;
 		i.quantity = quantity;
 
-		itemList.insert( std::pair<unsigned int, billedItem>(newItem.getItemCode(), i) );
+		_itemList.insert( std::pair<unsigned int, billedItem>(newItem.getItemCode(), i) );
 	}
 	else // If item already present in bill, update the quantity
 	{
@@ -33,11 +33,11 @@ void bill::addItem(item& newItem, unsigned int quantity)
 void bill::removeItem(unsigned int itemCode)
 {
 	std::map<unsigned int, billedItem>::iterator itr;
-	itr = itemList.find(itemCode);
+	itr = _itemList.find(itemCode);
 
-	if(itr != itemList.end())
+	if(itr != _itemList.end())
 	{
-		itemList.erase(itr);
+		_itemList.erase(itr);
 	}
 	else
 	{
@@ -49,7 +49,7 @@ void bill::displayDetails()
 {
 	std::cout << std::endl <<  "**********Bill Details**********" << std::endl << std::endl;
 	std::map<unsigned int, billedItem>::iterator itr;
-	for(itr = itemList.begin(); itr != itemList.end(); itr++)
+	for(itr = _itemList.begin(); itr != _itemList.end(); itr++)
 	{
 		itr->second.display();
 	}
@@ -58,12 +58,12 @@ void bill::displayDetails()
 	std::cout << "******************************" << std::endl;
 }
 
-unsigned int bill::compute()
+float bill::compute()
 {
-	unsigned int totalAmount = 0;
+	float totalAmount = 0;
 	std::map<unsigned int, billedItem>::iterator itr;
 
-	for(itr = itemList.begin(); itr != itemList.end(); itr++)
+	for(itr = _itemList.begin(); itr != _itemList.end(); itr++)
 	{
 		totalAmount += itr->second.computePrice();
 	}

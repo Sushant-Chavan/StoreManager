@@ -27,7 +27,7 @@
     <ClInclude Include="source\ItemManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="source\ReadConfig.h">
+    <ClInclude Include="source\AccessConfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,7 +47,7 @@
     <ClCompile Include="source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\ReadConfig.cpp">
+    <ClCompile Include="source\AccessConfig.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

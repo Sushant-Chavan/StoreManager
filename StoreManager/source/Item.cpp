@@ -3,13 +3,12 @@ using namespace std;
 
 item::item()
 {
-	name = "Invalid";
-	quantity = -1.0f;
-	code = 0;
-	price = 0;
+	_name = "Invalid";
+	_quantity = -1.0f;
+	_code = 0;
 }
 
-item::item(const char* itemName, unsigned int itemCode, float quantity, unsigned int price)
+item::item(const char* itemName, unsigned int itemCode, float quantity, float price)
 {
 	setItemName(itemName);
 	setItemCode(itemCode);
