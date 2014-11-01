@@ -152,7 +152,6 @@ bool writeConfig::writeItemData()
 		sprintf_s(itemCode, " %d ", myItem.getItemCode());
 
 		char itemQuantity[10];
-		
 		float quantity = myItem.getItemQuantity();
 		int d1 = quantity;            // Get the integer part (678).
 		float f2 = quantity - d1;     // Get fractional part (678.0123 - 678 = 0.0123).
@@ -160,7 +159,11 @@ bool writeConfig::writeItemData()
 		sprintf_s(itemQuantity, " %d.%d ", d1, d2);
 
 		char itemPrice[10];
-		sprintf_s(itemPrice, " %d ", myItem.getItemPrice());
+		float price = myItem.getItemPrice();
+		int d3 = price;            // Get the integer part (678).
+		float f3 = price - d3;     // Get fractional part (678.0123 - 678 = 0.0123).
+		int d4 = trunc(f3 * 100);   // Turn into integer (123).		sprintf_s(itemPrice, " %d ", myItem.getItemPrice());
+		sprintf_s(itemPrice, " %d.%d ", d3, d4);
 
 		char outString[250];
 

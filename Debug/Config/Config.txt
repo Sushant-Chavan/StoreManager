@@ -3,8 +3,8 @@
 
 
 <Start>
-Rice 1  1000.0  10 
-Wheat 2  1000.0  30 
-Jowar 3  1000.0  20 
-Lux 4  1.0  50 
+Rice 1  1000.0  10.0 
+Wheat 2  1000.0  30.0 
+Jowar 3  1000.0  20.0 
+Lux 4  1.0  50.0 
 <\Start>
