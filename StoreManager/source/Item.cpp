@@ -26,3 +26,23 @@ void item::displayDetails()
 
 	cout << ", Item Price: " << getItemPrice() << endl;
 }
+
+void item::displayName()
+{
+	cout << "Item Name: " << getItemName().c_str();
+}
+
+void item::displayPrice()
+{
+	cout << "Item Price: " << getItemPrice();
+}
+
+void item::displayCode()
+{
+	cout << "Item Code: " << getItemCode();
+}
+
+void item::displayQuantity()
+{
+	cout << "Item Quantity: " << getItemQuantity();
+}

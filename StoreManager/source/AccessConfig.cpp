@@ -162,7 +162,7 @@ bool writeConfig::writeItemData()
 		float price = myItem.getItemPrice();
 		int d3 = price;            // Get the integer part (678).
 		float f3 = price - d3;     // Get fractional part (678.0123 - 678 = 0.0123).
-		int d4 = trunc(f3 * 100);   // Turn into integer (123).		sprintf_s(itemPrice, " %d ", myItem.getItemPrice());
+		int d4 = trunc(f3 * 100);   // Turn into integer (123).
 		sprintf_s(itemPrice, " %d.%d ", d3, d4);
 
 		char outString[250];

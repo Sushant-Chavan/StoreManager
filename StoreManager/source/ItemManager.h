@@ -20,6 +20,8 @@ public:
 
 	item getMappedItem(unsigned int positionInMap);
 
+	void searchAndDisplayItemCodes(const char* itemName);
+
 	void displayAllItemCodes();
 
 	void displayAllItemNames();

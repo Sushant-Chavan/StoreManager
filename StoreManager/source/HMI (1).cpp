@@ -165,6 +165,13 @@ void hmi::searchItemPrice()
 
 void hmi::searchItemCode()
 {
+	std::string name;
+	cout << "Enter the Item Name to search: ";
+	cin >> name;
+
+	_iManager->searchAndDisplayItemCodes(name.c_str());
+
+	cout << endl;
 	mainMenu();
 }
 

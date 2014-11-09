@@ -1,4 +1,5 @@
 #include "ItemManager.h"
+#include<algorithm>
 
 itemManager::itemManager()
 {
@@ -73,6 +74,37 @@ item itemManager::getMappedItem(unsigned int positionInMap)
 		newItem = *(itr->second);
 	}
 	return newItem;
+}
+
+void itemManager::searchAndDisplayItemCodes(const char* itemName)
+{
+	std::map<unsigned int, item*>::iterator itr = _itemMap->begin();
+	bool searchHit = false;
+
+	std::cout << "Search Results: " << std::endl;
+	for (; itr != _itemMap->end(); itr++)
+	{
+		item newItem = *(itr->second);
+		std::string name = newItem.getItemName();
+		std::string searchName = itemName;
+
+		std::transform(searchName.begin(), searchName.end(), searchName.begin(), ::tolower);
+		std::transform(name.begin(), name.end(), name.begin(), ::tolower);
+
+		std::size_t found = name.find(searchName);
+		if (found != std::string::npos)
+		{
+			searchHit = true;
+			newItem.displayName();
+			std::cout << ": ";
+			newItem.displayCode();
+			std::cout << std::endl;
+		}
+	}
+	if (!searchHit)
+	{
+		std::cout << "No Search hits" << std::endl;
+	}
 }
 
 void itemManager::displayAllItemCodes()

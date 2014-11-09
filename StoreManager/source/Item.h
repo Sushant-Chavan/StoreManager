@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include<map>
+
 class item
 {
 public:
@@ -27,6 +28,14 @@ public:
 	void setItemPrice(float itemPrice) { _price = itemPrice; }
 
 	void setItemMrp(float quantity, float price);
+
+	void displayName();
+
+	void displayPrice();
+
+	void displayQuantity();
+
+	void displayCode();
 
 	void displayDetails();
 protected:
