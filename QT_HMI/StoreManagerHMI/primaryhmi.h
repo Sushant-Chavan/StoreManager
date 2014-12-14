@@ -2,6 +2,8 @@
 #define PRIMARYHMI_H
 
 #include <QWidget>
+#include "createbill.h"
+#include "Defines.h"
 
 namespace Ui {
 class PrimaryHMI;
@@ -17,6 +19,11 @@ public:
 
 private:
     Ui::PrimaryHMI *ui;
+
+    CreateBill* createBillWidget;
+
+signals:
+    void primaryHmiSignal(defines::primaryHmiButtons::primaryHmiButtons button);
 
 public slots:
     void createBill();

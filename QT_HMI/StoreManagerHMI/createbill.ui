@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CreateBill</class>
+ <widget class="QWidget" name="CreateBill">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>621</width>
+     <height>461</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="createBillTopLayout">
+    <item>
+     <layout class="QGridLayout" name="InputLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="EnterItemCode">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Enter Item Code</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="ItemCodeEntry"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="EnterItemCode_2">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Enter Quantity</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="ItemQuantityEntry"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="ButtonLayout">
+      <item>
+       <widget class="QPushButton" name="AddtoBillButton">
+        <property name="text">
+         <string>Add Item To Bill</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="RemoveItemFromBill">
+        <property name="text">
+         <string>Remove Item From Bill</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ShowBill">
+        <property name="text">
+         <string>Show Bll</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="FinalizeBill">
+        <property name="text">
+         <string>Finalize Bill</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

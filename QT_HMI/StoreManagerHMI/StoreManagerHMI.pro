@@ -13,8 +13,20 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        primaryhmi.cpp
+        primaryhmi.cpp \
+    createbill.cpp \
+    WidgetManager.cpp \
+    additemtoinventory.cpp \
+    removeitemfrominventory.cpp
 
-HEADERS  += primaryhmi.h
+HEADERS  += primaryhmi.h \
+    createbill.h \
+    WidgetManager.h \
+    Defines.h \
+    additemtoinventory.h \
+    removeitemfrominventory.h
 
-FORMS    += primaryhmi.ui
+FORMS    += primaryhmi.ui \
+    createbill.ui \
+    additemtoinventory.ui \
+    removeitemfrominventory.ui
