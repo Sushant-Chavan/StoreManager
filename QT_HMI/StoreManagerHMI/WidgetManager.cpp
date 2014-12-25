@@ -69,7 +69,7 @@ void widgetManager::initializeAndSetUpCreateBill()
 {
     if (!createBill)
     {
-       createBill = new CreateBill(this);
+       createBill = new CreateBill(this, primaryHmi->getItemManager());
        QObject::connect(createBill, SIGNAL(createBillSignal(defines::createBillButtons::createBillButtons)), this, SLOT(createBillSlot(defines::createBillButtons::createBillButtons)));
     }
 

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <QDebug>
 using namespace std;
 
 #define BUFF_SIZE 250
@@ -17,6 +18,8 @@ readConfig::readConfig(itemManager* iManager)
 
 bool readConfig::readItemData()
 {
+    qDebug() << "readItemData()";
+
 	char filestream[BUFF_SIZE];
 
 	ifstream infile("F:\\Projects\\StoreManager\\Debug\\Config\\Config.txt");
@@ -26,8 +29,14 @@ bool readConfig::readItemData()
 		char error[250];
 		cout << "File could not be opened!\n"; // Report error
 		cout << "Error code: " << strerror_s(error, errno); // Get some info as to why
-		return false;
+
+        qDebug() << "File could not be opened!";
+        return false;
 	}
+    else
+    {
+       qDebug() << "File opened!";
+    }
 
 	stringstream ss;
 	char check;

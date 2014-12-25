@@ -2,6 +2,8 @@
 #define PRIMARYHMI_H
 
 #include <QWidget>
+#include "backendSource/ItemManager.h"
+#include"backendSource/AccessConfig.h"
 #include "createbill.h"
 #include "Defines.h"
 
@@ -16,6 +18,8 @@ class PrimaryHMI : public QWidget
 public:
     explicit PrimaryHMI(QWidget *parent = 0);
     ~PrimaryHMI();
+
+    itemManager* getItemManager() { return _iManager; }
 
 private:
     Ui::PrimaryHMI *ui;
@@ -32,6 +36,13 @@ public slots:
     void displayInventory();
     void addItemToInventory();
     void removeItemFromInventory();
+
+protected:
+    itemManager* _iManager;
+    readConfig* _configReader;
+    writeConfig* _configwriter;
+
+    void initializeBackEnd();
 };
 
 #endif // PRIMARYHMI_H

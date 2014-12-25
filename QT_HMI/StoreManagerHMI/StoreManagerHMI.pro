@@ -17,14 +17,24 @@ SOURCES += main.cpp\
     createbill.cpp \
     WidgetManager.cpp \
     additemtoinventory.cpp \
-    removeitemfrominventory.cpp
+    removeitemfrominventory.cpp \
+    backendSource/AccessConfig.cpp \
+    backendSource/Billing.cpp \
+    backendSource/HMI.cpp \
+    backendSource/Item.cpp \
+    backendSource/ItemManager.cpp
 
 HEADERS  += primaryhmi.h \
     createbill.h \
     WidgetManager.h \
     Defines.h \
     additemtoinventory.h \
-    removeitemfrominventory.h
+    removeitemfrominventory.h \
+    backendSource/AccessConfig.h \
+    backendSource/Billing.h \
+    backendSource/HMI.h \
+    backendSource/Item.h \
+    backendSource/ItemManager.h
 
 FORMS    += primaryhmi.ui \
     createbill.ui \

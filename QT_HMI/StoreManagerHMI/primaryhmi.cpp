@@ -12,12 +12,23 @@ PrimaryHMI::PrimaryHMI(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setLayout(ui->topLayout);
+
+    initializeBackEnd();
+
     QObject::connect(ui->CreateBillPushButton, SIGNAL(clicked()), this, SLOT(createBill()));
     QObject::connect(ui->SearchItemCodePushButton, SIGNAL(clicked()), this, SLOT(searchItemCode()));
     QObject::connect(ui->SearchItemPricePushButton, SIGNAL(clicked()), this, SLOT(searchItemPrice()));
     QObject::connect(ui->DisplayInventoryPushButton, SIGNAL(clicked()), this, SLOT(displayInventory()));
     QObject::connect(ui->AddNewItemPushButton, SIGNAL(clicked()), this, SLOT(addItemToInventory()));
     QObject::connect(ui->RemoveInventoryItemPushButton, SIGNAL(clicked()), this, SLOT(removeItemFromInventory()));
+}
+
+void PrimaryHMI::initializeBackEnd()
+{
+    _iManager = new itemManager;
+    _configReader = new readConfig(_iManager);
+    _configwriter = new writeConfig(_iManager);
+    _configReader->readItemData();
 }
 
 void PrimaryHMI::createBill()
